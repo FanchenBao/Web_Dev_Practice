@@ -1,0 +1,12 @@
+02/02/2019
+    The template being used is called Landing Page (https://startbootstrap.com/template-overviews/landing-page/). The unnecessary header, footer, and call-to-action parts were removed.
+    Efforts were made to resize an image properly such that it could fit into meshhead background nicely.
+    Simple line icon was used after its css was found under ./vendor/simple-line-icons/css/simple-line-icons.css From there, one could know what icons are supported by this template (I displayed all the icons on the css in a separate sandbox html file).
+
+02/03/2019
+    Great efforts were made to properly size the images for each show-case container. Since the image is displayed as "cover" in the show-case container, it is stretched to fit the area. Consequently, if the image size is not appropriate, the stretched outcome results in only part of the image being displayed. Since I had no idea the exact rule for "cover" option, I opted to test different image sizing choices on the final display, and found that small images must be padded with extra white space on both sides (or top and bottom) to make the image appear big enough for full display. The image editing was done in keynotes; white space was created by flanging the target image with white rectangles.
+    Further problem was discovered after the display was checked for smartphone browser. For images very short and very wide, they are not friendly for smartphone display. Thus, additional tweaks were needed to modify short-and-wide image to make it appear more thin and tall. This was achieved by cropping the short-and-wide image in half and append the two halves vertically. Finally, with some trial and error with white space sizes on either side (it turns out the white space cannot be the same width on both left and right, because as the browser is resized, the right white space gets shrunk much more than the left white space. Consequently, I had to prepare wider right white space than left), proper images were created for show-case containers.
+
+02/04/2019
+    Added jerk technique image. Took a long time to adjust the image white space to make it presentable both in PC and phone browser view. It is still imperfect as part of the image cannot display under phone browser, but the loss does not affect the final presentation too much.
+    Added in-page links and external links. The 'a' tag is added on top of a div to preserve the format of the div content (e.g. simple line icon).

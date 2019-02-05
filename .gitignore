@@ -1,0 +1,5 @@
+# ignore sandbox folder
+sandbox/
+
+# ignore files
+.DS_Store

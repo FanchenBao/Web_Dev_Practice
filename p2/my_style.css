@@ -1,0 +1,43 @@
+header.masthead.text-white.text-center.my_head{
+  background: url("./img/masterhead_barbell.png") no-repeat center center;
+}
+
+header.masthead .overlay.my_overlay{
+  opacity:.5
+}
+
+h1.mb-5.my_h1{
+  font-size: 60px;
+}
+
+a.in_text:link {
+  text-decoration: none;
+  color: black;
+}
+
+a.in_text:visited {
+  text-decoration: none;
+  color: black;
+}
+
+a.in_text:hover {
+  text-decoration: none;
+  color: #1a75ff;
+}
+
+a.in_text:active {
+  text-decoration: none;
+}
+
+p.lead.mb-0.to_top{
+  font-weight: bold;
+}
+
+p.social_media{
+  font-size: 30px;
+  letter-spacing: 10px;
+}
+
+.call-to-action.text-white.text-center.my_call{
+  background:url(./img/masterhead_barbell.png) no-repeat center center;
+}
