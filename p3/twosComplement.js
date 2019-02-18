@@ -22,13 +22,15 @@ document.getElementById("d_to_2").onclick = function () {
   let deciStr = (document.getElementById("decimal").value).trim(); // this is to turn empty white space input into empty input
   switch (checkDeciValid(deciStr, maxTwosNeg, maxTwosPos)){
     case 1:
-      reportDeciToTwos(buildStr(deciToTwos(Number(deciStr), numBits)));
+      let twosArray = deciToTwos(Number(deciStr), numBits);
+      let strBinary = beautifyBinary(twosArray); // turn binary number from array to str representation
+      reportDeciToTwos(`${deciStr} = ${strBinary}`);
       break;
     case 2:
-      reportDeciToTwos(`Number out of range. Please enter a number between ${maxTwosNeg} and ${maxTwosPos}.`);
+      reportDeciToTwos(`Number out of range: please enter a number between ${maxTwosNeg} and ${maxTwosPos}.`);
       break;
     case 3:
-      reportDeciToTwos("Please enter a number.");
+      reportDeciToTwos("Input error: please enter numbers only.");
       break;
   }
 };
@@ -44,13 +46,15 @@ document.getElementById("2_to_d").onclick = function () {
     twosArray.push(0);
   switch (checkBinValid(binStr, twosArray, numBits)){
     case 1:
-      reportTwosToDeci(twosToDeci(twosArray, numBits));
+      let strBinary = beautifyBinary(twosArray); // twosArray has been cleaned up in checkBinValid(), now ready to turn into str representation
+      let deci = twosToDeci(twosArray, numBits);
+      reportTwosToDeci(`${strBinary} = ${deci}`);
       break;
     case 2:
-      reportTwosToDeci(`Too many bits. Please enter ${numBits} or fewer bits`);
+      reportTwosToDeci(`Number out of range: please enter ${numBits} or fewer bits`);
       break;
     case 3:
-      reportTwosToDeci("Please enter a valid binary number.");
+      reportTwosToDeci("Input error: please enter only 1 or 0.");
       break;
   }
 };
@@ -162,7 +166,7 @@ const toDeci = function(binArray, numBits){
 
 
 // turn a binary number in array format into a string, with every four digits separated by a space
-const buildStr = function(binArray){
+const beautifyBinary = function(binArray){
   let end = binArray.length;
   let beg = end - 4;
   let res = "";
