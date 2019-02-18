@@ -1,0 +1,27 @@
+.overlay {
+  background-color: black;
+}
+
+.masthead .masthead-bg {
+  background-color: rgba(75, 178, 55, 0.8);
+}
+
+
+.masthead .masthead-content h1 {
+    font-size: 2.5rem;
+  }
+
+.social-icons {
+  bottom: 0rem;
+}
+
+p.copy-right{
+  font-size: 1.2rem;
+  color: white
+}
+
+.btn-secondary:hover {
+  background-color: #ba7c37;
+  border-color: #ba7c37; 
+  color: green;
+}

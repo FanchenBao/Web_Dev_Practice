@@ -7,4 +7,4 @@ index.html is the portal for all projects contained within.
 
 * p1: Self CSS-styled single non-interactive webpage.
 * p2: Same webpage as in p1, but styled with Bootstrap template.
-* p3: Interactive web app written in JavaScript.
+* p3: Interactive web app written in JavaScript and styled with Bootstrap template.
