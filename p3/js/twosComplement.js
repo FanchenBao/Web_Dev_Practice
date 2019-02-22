@@ -1,4 +1,5 @@
 /* Main Logic*/
+
 const reportDeciToTwos = function (res) {
   document.getElementById("res_d_to_2").value = res;
 };

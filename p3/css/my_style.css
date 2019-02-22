@@ -3,13 +3,19 @@
 }
 
 .masthead .masthead-bg {
-  background-color: rgba(75, 178, 55, 0.8);
+    background-color: rgba(75, 178, 55, 0.8);
 }
-
 
 .masthead .masthead-content h1 {
     font-size: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .masthead {
+    width: 50rem;
   }
+}
+
 
 .social-icons {
   bottom: 0rem;
