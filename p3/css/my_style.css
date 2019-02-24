@@ -1,33 +1,33 @@
+@media (pointer: coarse) and (hover: none) {
+  body {
+    background: url("../img/my_mobile_fallback.png") black no-repeat center center scroll;
+  }
+}
+
 .overlay {
   background-color: black;
 }
 
 .masthead .masthead-bg {
-    background-color: rgba(75, 178, 55, 0.8);
-}
-
-.masthead .masthead-content h1 {
-    font-size: 2.5rem;
+  background-color: rgba(75, 178, 55, 0.8);
 }
 
 @media (min-width: 768px) {
   .masthead {
-    width: 50rem;
+    width: 48rem;
   }
-}
-
-
-.social-icons {
-  bottom: 0rem;
-}
-
-p.copy-right{
-  font-size: 1.2rem;
-  color: white
+  .masthead .masthead-content h1 {
+    font-size: 2.5rem;
+  }
 }
 
 .btn-secondary:hover {
   background-color: #ba7c37;
   border-color: #ba7c37; 
   color: green;
+}
+
+p.copy-right{
+  font-size: 1.2rem;
+  color: white
 }
