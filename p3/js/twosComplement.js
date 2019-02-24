@@ -31,10 +31,10 @@ document.getElementById("d_to_2").onclick = function () {
       reportDeciToTwos(strBinary);
       break;
     case 2:
-      alert(`ERROR: Number out of range. Please enter a number between ${maxTwosNeg} and ${maxTwosPos}.`);
+      reportDeciToTwos(`ERROR: Please enter a number between ${maxTwosNeg} and ${maxTwosPos}.`);
       break;
     case 3:
-      alert("ERROR: Please enter an integer number.");
+      reportDeciToTwos("ERROR: Please enter an integer.");
       break;
   }
 };
@@ -56,10 +56,10 @@ document.getElementById("2_to_d").onclick = function () {
       beautifyBinInput(strBinary); // reformat user's input in case it is less friendly to look at
       break;
     case 2:
-      alert(`ERROR: Number out of range. Please enter ${numBits} or fewer bits`);
+      reportTwosToDeci(`ERROR: Please enter ${numBits} or fewer bits.`);
       break;
     case 3:
-      alert("ERROR: Please enter a binary consisting of only 1 or 0 (space is allowed between the digits).");
+      reportTwosToDeci("ERROR: Please enter a binary number with only 1 or 0.");
       break;
   }
 };
