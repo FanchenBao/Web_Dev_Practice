@@ -25,18 +25,33 @@
           All Items: <span id='allItems'></span>
         </p>
       </div>
+
+      <!-- user input new item to do-->
+      <div class='inline'><input type="text" id="itemDescription" placeholder="Something to do next..."></div>
+      
+      <!--      dropdown button for some functionality-->
+      <div class="inline dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Tool
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" id='markAllComplete' href="#">Mark All Complete</a>
+          <a class="dropdown-item" id='group' href="#">Group</a>
+          <a class="dropdown-item" id='sort' href="#">Sort</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" id='removeCompleted' href="#">Remove Completed</a>
+          <a class="dropdown-item" id='removeUnfinished' href="#">Remove Unfinished</a>
+          <a class="dropdown-item" id='removeAll' href="#">Remove All</a>
+        </div>
+      </div>
       <ul>
         <li class="item">
-          <i id="check" class="far fa-circle"></i><input type='text' class='hot' value='fresh figs' disabled='true'><i id='trashcan' class="far fa-trash-alt"></i>
+          <i id="check" class="far fa-circle"></i><input type='text' class='itemName hot' value='fresh figs' disabled='true'><i id='trashcan' class="far fa-trash-alt"></i>
         </li>
         <li class="item">
-          <i id="check" class="far fa-circle"></i><input type='text' class='hot' value="pines" disabled="true"><i id='trashcan' class="far fa-trash-alt"></i>
+          <i id="check" class="far fa-circle"></i><input type='text' class='itemName hot' value="pines" disabled="true"><i id='trashcan' class="far fa-trash-alt"></i>
         </li>
-      </ul>
-      
-      <input type="text" id="itemDescription" placeholder="Something to do next...">
-      
-
+      </ul>    
     </div>
     
     <!-- jQuery first, then Popper.js, then Bootstrap JS CDN -->

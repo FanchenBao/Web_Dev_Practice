@@ -9,8 +9,8 @@ $(function() {
 
   // ITEM COUNTER
   function updateCount() {                       // Create function to update counter
-    $('#unfinished').text($('input[class=hot]').length); // count unfinished items
-    $('#completed').text($('input[class=complete]').length); // count completed items
+    $('#unfinished').text($('.itemName.hot').length); // count unfinished items
+    $('#completed').text($('.itemName.complete').length); // count completed items
     $('#allItems').text($('li').length); // count all items
   }
   updateCount();                                
@@ -18,7 +18,7 @@ $(function() {
   // Add new item to the list via input 
   $('#itemDescription').change(function(){
     itemStr = $(this).val();
-    $list.append('<li class=\'item\'><input type=\'text\' class=\'hot\' value=\'' + itemStr + '\' disabled=\'true\'></li>'); // add item
+    $list.append('<li class=\'item\'><input type=\'text\' class=\'itemName hot\' value=\'' + itemStr + '\' disabled=\'true\'></li>'); // add item
     let newItem = $list.children().last();
     newItem.append('<i id=\'trashcan\' class="far fa-trash-alt"></i>'); // add trashcan icon
     newItem.find('#trashcan').hide(); // hide the trashcan icon initially
@@ -28,8 +28,8 @@ $(function() {
   });
   
   // Hover over item to show trashcan icon
-  $list.on('mouseenter mouseleave', 'li', function(){
-    $(this).find('#trashcan').toggle();
+  $list.on('mouseenter mouseleave', '.itemName', function(e){
+    $(e.target).next().toggle();
   });
   
   // Click trashcan icon to delete an item
