@@ -2,7 +2,7 @@ $(function() {
 
   // SETUP
   let $list;
-  let item = '';                                 // item is an empty string
+  let itemStr = '';                                 // item is an empty string
   $list = $('ul');                               // Cache the unordered list
   $('li').find('#trashcan').hide();
 
@@ -17,8 +17,8 @@ $(function() {
 
   // Add new item to the list via input 
   $('#itemDescription').change(function(){
-    item = $(this).val();
-    $list.append('<li class=\'item\'><input type=\'text\' class=\'hot\' value=\'' + item + '\' disabled=\'true\'></li>'); // add item
+    itemStr = $(this).val();
+    $list.append('<li class=\'item\'><input type=\'text\' class=\'hot\' value=\'' + itemStr + '\' disabled=\'true\'></li>'); // add item
     let newItem = $list.children().last();
     newItem.append('<i id=\'trashcan\' class="far fa-trash-alt"></i>'); // add trashcan icon
     newItem.find('#trashcan').hide(); // hide the trashcan icon initially
@@ -49,9 +49,11 @@ $(function() {
   // Double click an item to modify its content. This is only possible if the item is hot. Once item becomes complete,
   // it cannot be modified unless it reverts back to hot
   $list.on('dblclick', '.hot', function(e){
-    $(e.target).prop('disabled', false); // enable modification to the input box
-    $(e.target).addClass('edit'); // add 'edit' class to input
-    $(e.target).focus(); // focus on the input box
+    let $target = $(e.target);
+    $target.prop('disabled', false); // enable modification to the input box
+    $target.addClass('edit'); // add 'edit' class to input
+    $target.focus(); // focus on the input box
+    itemStr = $target.val();
   });
   
   // Revert input box back to default when it loses focus, used when an item is double-clicked, but no change is made
@@ -62,8 +64,11 @@ $(function() {
   
   // Revert input box back to default, used to modify item value
   $list.on('change', '.hot.edit', function(e){
-    $(e.target).prop('disabled', true);
-    $(e.target).removeClass('edit');
+    let $target = $(e.target);
+    if ($target.val() === '') // user deletes item description, revert item back to original. Item can only be removed from trashcan icon
+      $target.val(itemStr);
+    $target.prop('disabled', true);
+    $target.removeClass('edit');
   });
   
 
