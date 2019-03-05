@@ -9,8 +9,8 @@ $(function() {
 
   // ITEM COUNTER
   function updateCount() {                       // Create function to update counter
-    $('#unfinished').text($('li[class!=complete]').length); // count unfinished items
-    $('#completed').text($('li[class=complete]').length); // count completed items
+    $('#unfinished').text($('input[class=hot]').length); // count unfinished items
+    $('#completed').text($('input[class=complete]').length); // count completed items
     $('#allItems').text($('li').length); // count all items
   }
   updateCount();                                
@@ -18,7 +18,7 @@ $(function() {
   // Add new item to the list via input 
   $('#itemDescription').change(function(){
     item = $(this).val();
-    $list.append('<li class=\"hot\"><span>' + item + '</span></li>'); // add item
+    $list.append('<li class=\'item\'><input type=\'text\' class=\'hot\' value=\'' + item + '\' disabled=\'true\'></li>'); // add item
     let newItem = $list.children().last();
     newItem.append('<i id=\'trashcan\' class="far fa-trash-alt"></i>'); // add trashcan icon
     newItem.find('#trashcan').hide(); // hide the trashcan icon initially
@@ -38,12 +38,32 @@ $(function() {
     updateCount();
   });
 
-  // Click uncheck icon to mark completion of an item
+  // Click check icon to toggle completion of an item
   $list.on('click', '#check', function(e){
     let $target = $(e.target);
-    $target.parent().toggleClass('hot complete');
+    $target.next().toggleClass('hot complete');
     $target.toggleClass('fa-circle fa-check-circle');
     updateCount();
+  });
+  
+  // Double click an item to modify its content. This is only possible if the item is hot. Once item becomes complete,
+  // it cannot be modified unless it reverts back to hot
+  $list.on('dblclick', '.hot', function(e){
+    $(e.target).prop('disabled', false); // enable modification to the input box
+    $(e.target).addClass('edit'); // add 'edit' class to input
+    $(e.target).focus(); // focus on the input box
+  });
+  
+  // Revert input box back to default when it loses focus, used when an item is double-clicked, but no change is made
+  $list.on('blur', '.hot.edit', function(e){
+    $(e.target).prop('disabled', true);
+    $(e.target).removeClass('edit');
+  });
+  
+  // Revert input box back to default, used to modify item value
+  $list.on('change', '.hot.edit', function(e){
+    $(e.target).prop('disabled', true);
+    $(e.target).removeClass('edit');
   });
   
 

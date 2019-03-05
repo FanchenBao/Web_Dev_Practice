@@ -11,6 +11,9 @@
     <!--    Font Awesome CDN-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     
+    <!-- My CSS -->
+    <link href="./mystyle.css" rel="stylesheet">
+    
   </head>
   <body>
     <div id="page">
@@ -23,22 +26,17 @@
         </p>
       </div>
       <ul>
-        <li class="hot">
-          <i id="check" class="far fa-circle"></i><span>fresh figs</span><i id='trashcan' class="far fa-trash-alt"></i>
+        <li class="item">
+          <i id="check" class="far fa-circle"></i><input type='text' class='hot' value='fresh figs' disabled='true'><i id='trashcan' class="far fa-trash-alt"></i>
         </li>
-        <li class="hot">
-          <i id="check" class="far fa-circle"></i><span>pine nuts</span><i id='trashcan' class="far fa-trash-alt"></i>
+        <li class="item">
+          <i id="check" class="far fa-circle"></i><input type='text' class='hot' value="pines" disabled="true"><i id='trashcan' class="far fa-trash-alt"></i>
         </li>
       </ul>
-      <input type="text" id="itemDescription" placeholder="Something to do next..." />
       
-<!--
-      <div id="newItemButton"><button href="#" id="showForm">new item</button></div>
-      <form id="newItemForm">
-        <input type="text" id="itemDescription" placeholder="Add description" />
-        <input type="submit" id="add" value="add" />
-      </form>
--->
+      <input type="text" id="itemDescription" placeholder="Something to do next...">
+      
+
     </div>
     
     <!-- jQuery first, then Popper.js, then Bootstrap JS CDN -->

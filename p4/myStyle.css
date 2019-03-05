@@ -1,0 +1,31 @@
+.item{
+  font-size:24px;
+}
+
+.hot{
+  border: none;
+  color: black;
+}
+
+.complete{
+  border: none;
+  color: grey;
+  text-decoration: line-through;
+}
+
+.hot.edit{
+  border: 1px solid;
+  color: grey;
+}
+
+.fa-check-circle{
+  color: greenyellow;
+}
+
+.fa-circle{
+  color: blue;
+}
+
+.fa-trash-alt{
+  color: red;
+}
