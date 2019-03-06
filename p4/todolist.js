@@ -4,8 +4,6 @@ $(function() {
   let $list;
   let itemStr = '';                                 // item is an empty string
   $list = $('ul');                               // Cache the unordered list
-  $('li').find('#trashcan').hide();
-
 
   // ITEM COUNTER
   function updateCount() {                       // Create function to update counter
@@ -20,16 +18,18 @@ $(function() {
     itemStr = $(this).val();
     $list.append('<li class=\'item\'><input type=\'text\' class=\'itemName unfinished\' value=\'' + itemStr + '\' disabled=\'true\'></li>'); // add item
     let newItem = $list.children().last();
-    newItem.append('<i id=\'trashcan\' class="far fa-trash-alt"></i>'); // add trashcan icon
-    newItem.find('#trashcan').hide(); // hide the trashcan icon initially
+    newItem.append('<i id=\'trashcan\' class="far fa-trash-alt hide"></i>'); // add trashcan icon
     newItem.prepend('<i id=\'check\' class="far fa-circle"></i>'); // add circle icon for choosing
     $(this).val('');
     updateCount();
   });
   
-  // Hover over item to show trashcan icon
-  $list.on('mouseenter mouseleave', '.itemName', function(e){
-    $(e.target).next().toggle();
+  // Hover over item to show trashcan icon (a better practice should be wrapping these two in another div annd do the event listening on the div, instead of on these two elements individually)
+  $list.on('mouseenter mouseleave', '.itemName', function(e){ // hover over item
+    $(e.target).next().toggleClass('show hide');
+  });
+  $list.on('mouseenter mouseleave', '#trashcan', function(e){ // hover over trashcan itself
+    $(e.target).toggleClass('show hide');
   });
   
   // Click trashcan icon to delete an item

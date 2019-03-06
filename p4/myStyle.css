@@ -1,19 +1,63 @@
-.inline { 
-  display: inline-block; 
-  margin:10px;
+body{
+  background-color: darkgoldenrod;
+  background-image: url('./img/parchment-paper.jpg');
+  background-position: center; 
+  background-repeat: no-repeat;
+  background-size: cover; 
+}
+.container{
+  padding-top: 50px;
+  margin: auto;
+  text-align: center;
+  height: 800px;
+}
+
+#counter button{
+  cursor: default;
+  border: none;
+  box-shadow: none;
+  margin: 0px;
+}
+
+#counter .btn-secondary, .btn-secondary:hover{
+  background-color: grey;
+}
+
+#counter .btn-success, .btn-success:hover{
+  background-color: green;
+}
+
+#counter .btn-info, .btn-info:hover{
+  background-color: steelblue;
+}
+
+.mainInterface { 
+  padding-top: 50px;
+  padding-bottom: 10px;
+}
+
+#itemDescription{
+  width: 250px;
+  font-size:24px;
+}
+
+.dropright{
+  padding-bottom: 10px;
 }
 
 .item{
   font-size:24px;
 }
 
-.unfinished{
+.itemName{
   border: none;
   color: black;
+  padding-left: 30px;
+  width: 300px;
+  background-color: transparent;
 }
 
 .complete{
-  border: none;
   color: grey;
   text-decoration: line-through;
 }
@@ -23,14 +67,22 @@
   color: grey;
 }
 
+.far{
+  cursor: pointer;
+}
+
 .fa-check-circle{
   color: greenyellow;
 }
 
 .fa-circle{
-  color: blue;
+  color: dimgray;
 }
 
-.fa-trash-alt{
-  color: red;
+.fa-trash-alt.hide{
+  color: transparent;
+}
+
+.fa-trash-alt.show{
+  color: orangered;
 }

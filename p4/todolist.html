@@ -16,57 +16,65 @@
     
   </head>
   <body>
-    <div id="page">
+    <div class="container">
       <h1 id="header">To Do List</h1>
       <h2>Don't procrastinate!</h2>
       <div id='counter'>
-        <p>Unfinished: <span id='unfinished'></span>
-          Completed: <span id='completed'></span>
-          All Items: <span id='allItems'></span>
-        </p>
+        <button type="button" class="btn btn-secondary">
+          To Do <span class="badge badge-light" id='unfinished'></span>
+        </button>
+        <button type="button" class="btn btn-success">
+          Done <span class="badge badge-light" id='completed'></span>
+        </button>
+        <button type="button" class="btn btn-info">
+          All <span class="badge badge-light" id='allItems'></span>
+        </button>            
       </div>
 
-      <!-- user input new item to do-->
-      <div class='inline'><input type="text" id="itemDescription" placeholder="Something to do next..."></div>
       
-      <!--      dropdown button for some functionality-->
-      <div class="inline btn-group dropright">
-        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Tool
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" id='markAllComplete' href="#">Mark All Complete</a>
-          <a class="dropdown-item" id='markAllUnfinished' href="#">Mark All Unfinished</a>
-          <a class="dropdown-item" id='sort' href="#">Sort</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" id='removeComplete' href="#">Remove Complete</a>
-          <a class="dropdown-item" id='removeUnfinished' href="#">Remove Unfinished</a>
-          <a class="dropdown-item" id='removeAll' href="#">Remove All</a>
+      <div class='mainInterface'>
+        <!-- user input new item to do-->
+        <input type="text" id="itemDescription" placeholder="Something to do next...">
+        <!--      dropdown button for some functionality-->
+        <div class="btn-group dropright">
+          <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-bars"></i>
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" id='markAllComplete' href="#">Mark All Complete</a>
+            <a class="dropdown-item" id='markAllUnfinished' href="#">Mark All Unfinished</a>
+            <a class="dropdown-item" id='sort' href="#">Sort</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" id='removeComplete' href="#">Remove Complete</a>
+            <a class="dropdown-item" id='removeUnfinished' href="#">Remove Unfinished</a>
+            <a class="dropdown-item" id='removeAll' href="#">Remove All</a>
+          </div>
         </div>
       </div>
-      <ul>
+      <ul class="list-unstyled">
+<!--
         <li class="item">
-          <i id="check" class="far fa-circle"></i><input type='text' class='itemName unfinished' value='fresh figs' disabled='true'><i id='trashcan' class="far fa-trash-alt"></i>
+          <i id="check" class="far fa-circle"></i><input type='text' class='itemName unfinished' value='fresh figs' disabled='true'><i id='trashcan' class="far fa-trash-alt hide"></i>
         </li>
         <li class="item">
-          <i id="check" class="far fa-circle"></i><input type='text' class='itemName unfinished' value="pines" disabled="true"><i id='trashcan' class="far fa-trash-alt"></i>
+          <i id="check" class="far fa-circle"></i><input type='text' class='itemName unfinished' value="pines" disabled="true"><i id='trashcan' class="far fa-trash-alt hide"></i>
         </li>
         <li class="item">
-          <i id="check" class="far fa-circle"></i><input type='text' class='itemName unfinished' value="sleep" disabled="true"><i id='trashcan' class="far fa-trash-alt"></i>
+          <i id="check" class="far fa-circle"></i><input type='text' class='itemName unfinished' value="sleep" disabled="true"><i id='trashcan' class="far fa-trash-alt hide"></i>
         </li>
         <li class="item">
-          <i id="check" class="far fa-circle"></i><input type='text' class='itemName unfinished' value="walk" disabled="true"><i id='trashcan' class="far fa-trash-alt"></i>
+          <i id="check" class="far fa-circle"></i><input type='text' class='itemName unfinished' value="walk" disabled="true"><i id='trashcan' class="far fa-trash-alt hide"></i>
         </li>
         <li class="item">
-          <i id="check" class="far fa-circle"></i><input type='text' class='itemName unfinished' value="kiss Rosiesie" disabled="true"><i id='trashcan' class="far fa-trash-alt"></i>
+          <i id="check" class="far fa-circle"></i><input type='text' class='itemName unfinished' value="kiss Rosiesie" disabled="true"><i id='trashcan' class="far fa-trash-alt hide"></i>
         </li>
         <li class="item">
-          <i id="check" class="far fa-circle"></i><input type='text' class='itemName unfinished' value="Fly" disabled="true"><i id='trashcan' class="far fa-trash-alt"></i>
+          <i id="check" class="far fa-circle"></i><input type='text' class='itemName unfinished' value="Fly" disabled="true"><i id='trashcan' class="far fa-trash-alt hide"></i>
         </li>
-      </ul>    
+-->
+      </ul> 
     </div>
-    
-    <div class='test'></div>
+
     
     <!-- jQuery first, then Popper.js, then Bootstrap JS CDN -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
