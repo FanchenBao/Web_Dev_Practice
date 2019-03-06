@@ -11,7 +11,39 @@ $(function() {
     $('#done').text($('.item.done').length); // count doned items
     $('#allItems').text($('.item').length); // count all items
   }
-  updateCount();                                
+  
+  // UPDATE LOCAL STORAGE
+  function updateLocalStorage(){
+    localStorage.clear();
+    let itemArray = [];
+    $('.itemName').each(function(){
+      let itemObj = {
+        name : $(this).val(),
+        status : $(this).attr('class'),
+        check : $(this).siblings('#check').attr('class'),
+        parentStat : $(this).parent().attr('class')
+      };
+      itemArray.push(itemObj);
+    });
+    localStorage.setItem('allItems', JSON.stringify(itemArray)); // store the done list
+  }
+  
+  // LOAD LOCAL STORAGE
+  function loadLocalStorage(){
+    let itemArray = JSON.parse(localStorage.getItem('allItems'));
+    if (itemArray !== null){
+      for (let itemObj of itemArray){
+        $list.append('<li class=\'' + itemObj.parentStat + '\'><textarea name=\'text\' class=\'' + itemObj.status + '\' disabled=\'true\'>' + itemObj.name + '</textarea></li>'); // add item
+        let newItem = $list.children().last();
+        newItem.append('<i id=\'trashcan\' class="far fa-trash-alt hide"></i>'); // add trashcan icon
+        newItem.prepend('<i id=\'check\' class=\'' + itemObj.check + '\'></i>'); // add circle or check icon for choosing
+      }
+    }
+  }
+  
+  
+  loadLocalStorage();
+  updateCount();  
 
   // Add new item to the list via input 
   $('#itemDescription').change(function(){
@@ -22,6 +54,7 @@ $(function() {
     newItem.prepend('<i id=\'check\' class="far fa-circle"></i>'); // add circle icon for choosing
     $(this).val('');
     updateCount();
+    updateLocalStorage();
   });
   
   // Hover over item to show trashcan icon (a better practice should be wrapping these two in another div annd do the event listening on the div, instead of on these two elements individually)
@@ -36,6 +69,7 @@ $(function() {
   $list.on('click', '#trashcan', function(e){
     $(e.target).parent().remove();
     updateCount();
+    updateLocalStorage();
   });
 
   // Click check icon to toggle completion of an item
@@ -45,6 +79,7 @@ $(function() {
     $target.toggleClass('fa-circle fa-check-circle');
     $target.parent().toggleClass('todo done');
     updateCount();
+    updateLocalStorage();
   });
   
   // Double click an item to modify its content. This is only possible if the item is todo. Once item becomes done,
@@ -79,6 +114,8 @@ $(function() {
     $('<textarea name=\'text\' class=\'itemName todo\' disabled=\'true\'>' + itemStr + '</textarea>').insertBefore($nextTarget); // put the textarea back
     if($nextTarget.hasClass('show')) // hide the trashcan when the input area is out of focus
       $nextTarget.toggleClass('hide show');
+    
+    updateLocalStorage();
   });
   
   
@@ -97,6 +134,7 @@ $(function() {
         $(this).toggleClass('todo done');
     });
     updateCount();
+    updateLocalStorage();
   });
   
   // handle mark all todo action
@@ -112,6 +150,7 @@ $(function() {
         $(this).toggleClass('todo done');
     });
     updateCount();
+    updateLocalStorage();
   });
   
   
@@ -141,24 +180,28 @@ $(function() {
     $list.append(todoItems);
     $list.append(doneItems);
     updateCount();
+    updateLocalStorage();
   });
   
   // handle remove doned action.
   $('.dropdown-menu').on('click', '#removeDone', function(){
     $('.item.done').remove();
     updateCount();
+    updateLocalStorage();
   });
   
   // handle remove todo action.
   $('.dropdown-menu').on('click', '#removeTodo', function(){
     $('.item.todo').remove();
     updateCount();
+    updateLocalStorage();
   });
   
   // handle remove all action.
   $('.dropdown-menu').on('click', '#removeAll', function(){
     $('.item').remove();
     updateCount();
+    updateLocalStorage();
   });
   
 
