@@ -71,10 +71,9 @@ $(function() {
     $target.removeClass('edit');
   });
   
-  // HANDLE DROPDOWN MENU ACTIONS
-  let isGroup = false;
-  let isSort = false;
   
+  
+  // HANDLE DROPDOWN MENU ACTIONS
   // handle mark all complete action
   $('.dropdown-menu').on('click', '#markAllComplete', function(){
     $('.item').each(function(){
@@ -107,46 +106,32 @@ $(function() {
     updateCount();
   });
   
-  // handle group action. It groups the unfinished items together, and complete items together
-  $('.dropdown-menu').on('click', '#group', function(){
-    let newItems = $('.item').clone();
-    newItems.sort(function(a, b){ // sort based on whether the item is complete or unfinished
-      a = $(a).children('input').attr('class');
-      b = $(b).children('input').attr('class');
-      // compare. Unfinished go to top, complete go to bottom
-      if(a < b) {
-          return 1;
-      } else if(a > b) {
-          return -1;
-      } else {
-          return 0;
-      }
-    });
-    
-    $list.children().remove();
-    $list.append(newItems);
-    isGroup = true;
-  });
   
-  // handle sort action. It sorts based on item's name. If item has been grouped already, sort happens to each group
-  $('.dropdown-menu').on('click', '#sort', function(){
-    let newItems = $('.item').clone();
-    newItems.sort(function(a, b){ // sort based on whether the item is complete or unfinished
-      a = $(a).children('input').attr('class');
-      b = $(b).children('input').attr('class');
-      // compare. Unfinished go to top, complete go to bottom
-      if(a < b) {
+  // sort 'li' by item's name
+  let sortByValue = array =>{
+    array.sort(function(a, b){ // sort based on whether the item's name
+      a = $(a).children('input').val();
+      b = $(b).children('input').val();
+      // compare. alphabetically ascending
+      if(a > b) {
           return 1;
-      } else if(a > b) {
+      } else if(a < b) {
           return -1;
       } else {
           return 0;
       }
     });
-    
-    $list.children().remove();
-    $list.append(newItems);
-    isGroup = true;
+  };
+  
+  // handle sort action. It sorts based on item's name, and groups items based on whether they are complete or unfinished.
+  $('.dropdown-menu').on('click', '#sort', function(){
+      let unfinishedItems = $('.unfinished').parent().clone();
+      let completeItems = $('.complete').parent().clone();
+      sortByValue(unfinishedItems);
+      sortByValue(completeItems);
+      $list.children().remove();
+      $list.append(unfinishedItems);
+      $list.append(completeItems);
   });
   
 
