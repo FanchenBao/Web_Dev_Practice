@@ -30,12 +30,13 @@
       <div class='inline'><input type="text" id="itemDescription" placeholder="Something to do next..."></div>
       
       <!--      dropdown button for some functionality-->
-      <div class="inline dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <div class="inline btn-group dropright">
+        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Tool
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <a class="dropdown-item" id='markAllComplete' href="#">Mark All Complete</a>
+          <a class="dropdown-item" id='markAllUnfinished' href="#">Mark All Unfinished</a>
           <a class="dropdown-item" id='group' href="#">Group</a>
           <a class="dropdown-item" id='sort' href="#">Sort</a>
           <div class="dropdown-divider"></div>
@@ -46,10 +47,22 @@
       </div>
       <ul>
         <li class="item">
-          <i id="check" class="far fa-circle"></i><input type='text' class='itemName hot' value='fresh figs' disabled='true'><i id='trashcan' class="far fa-trash-alt"></i>
+          <i id="check" class="far fa-circle"></i><input type='text' class='itemName unfinished' value='fresh figs' disabled='true'><i id='trashcan' class="far fa-trash-alt"></i>
         </li>
         <li class="item">
-          <i id="check" class="far fa-circle"></i><input type='text' class='itemName hot' value="pines" disabled="true"><i id='trashcan' class="far fa-trash-alt"></i>
+          <i id="check" class="far fa-circle"></i><input type='text' class='itemName unfinished' value="pines" disabled="true"><i id='trashcan' class="far fa-trash-alt"></i>
+        </li>
+        <li class="item">
+          <i id="check" class="far fa-circle"></i><input type='text' class='itemName unfinished' value="sleep" disabled="true"><i id='trashcan' class="far fa-trash-alt"></i>
+        </li>
+        <li class="item">
+          <i id="check" class="far fa-circle"></i><input type='text' class='itemName unfinished' value="walk" disabled="true"><i id='trashcan' class="far fa-trash-alt"></i>
+        </li>
+        <li class="item">
+          <i id="check" class="far fa-circle"></i><input type='text' class='itemName unfinished' value="kiss Rosiesie" disabled="true"><i id='trashcan' class="far fa-trash-alt"></i>
+        </li>
+        <li class="item">
+          <i id="check" class="far fa-circle"></i><input type='text' class='itemName unfinished' value="Fly" disabled="true"><i id='trashcan' class="far fa-trash-alt"></i>
         </li>
       </ul>    
     </div>

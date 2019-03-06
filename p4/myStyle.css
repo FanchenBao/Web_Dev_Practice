@@ -7,7 +7,7 @@
   font-size:24px;
 }
 
-.hot{
+.unfinished{
   border: none;
   color: black;
 }
@@ -18,7 +18,7 @@
   text-decoration: line-through;
 }
 
-.hot.edit{
+.unfinished.edit{
   border: 1px solid;
   color: grey;
 }
