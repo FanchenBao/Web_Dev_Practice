@@ -7,8 +7,8 @@ $(function() {
 
   // ITEM COUNTER
   function updateCount() {                       // Create function to update counter
-    $('#unfinished').text($('.itemName.unfinished').length); // count unfinished items
-    $('#completed').text($('.itemName.complete').length); // count completed items
+    $('#todo').text($('.itemName.todo').length); // count todo items
+    $('#doned').text($('.itemName.done').length); // count doned items
     $('#allItems').text($('li').length); // count all items
   }
   updateCount();                                
@@ -16,7 +16,7 @@ $(function() {
   // Add new item to the list via input 
   $('#itemDescription').change(function(){
     itemStr = $(this).val();
-    $list.append('<li class=\'item\'><input type=\'text\' class=\'itemName unfinished\' value=\'' + itemStr + '\' disabled=\'true\'></li>'); // add item
+    $list.append('<li class=\'item\'><input type=\'text\' class=\'itemName todo\' value=\'' + itemStr + '\' disabled=\'true\'></li>'); // add item
     let newItem = $list.children().last();
     newItem.append('<i id=\'trashcan\' class="far fa-trash-alt hide"></i>'); // add trashcan icon
     newItem.prepend('<i id=\'check\' class="far fa-circle"></i>'); // add circle icon for choosing
@@ -41,14 +41,14 @@ $(function() {
   // Click check icon to toggle completion of an item
   $list.on('click', '#check', function(e){
     let $target = $(e.target);
-    $target.next().toggleClass('unfinished complete');
+    $target.next().toggleClass('todo done');
     $target.toggleClass('fa-circle fa-check-circle');
     updateCount();
   });
   
-  // Double click an item to modify its content. This is only possible if the item is unfinished. Once item becomes complete,
-  // it cannot be modified unless it reverts back to unfinished
-  $list.on('dblclick', '.unfinished', function(e){
+  // Double click an item to modify its content. This is only possible if the item is todo. Once item becomes done,
+  // it cannot be modified unless it reverts back to todo
+  $list.on('dblclick', '.todo', function(e){
     let $target = $(e.target);
     $target.prop('disabled', false); // enable modification to the input box
     $target.addClass('edit'); // add 'edit' class to input
@@ -57,13 +57,13 @@ $(function() {
   });
   
   // Revert input box back to default when it loses focus, used when an item is double-clicked, but no change is made
-  $list.on('blur', '.unfinished.edit', function(e){
+  $list.on('blur', '.todo.edit', function(e){
     $(e.target).prop('disabled', true);
     $(e.target).removeClass('edit');
   });
   
   // Revert input box back to default, used to modify item value
-  $list.on('change', '.unfinished.edit', function(e){
+  $list.on('change', '.todo.edit', function(e){
     let $target = $(e.target);
     if ($target.val() === '') // user deletes item description, revert item back to original. Item can only be removed from trashcan icon
       $target.val(itemStr);
@@ -74,32 +74,32 @@ $(function() {
   
   
   // HANDLE DROPDOWN MENU ACTIONS
-  // handle mark all complete action
-  $('.dropdown-menu').on('click', '#markAllComplete', function(){
+  // handle mark all done action
+  $('.dropdown-menu').on('click', '#markAllDone', function(){
     $('.item').each(function(){
       let $check = $(this).children('#check');
       let $itemName = $(this).children('.itemName');
       if($check.hasClass('fa-circle')){
         $check.toggleClass('fa-circle fa-check-circle');
       }
-      if($itemName.hasClass('unfinished')){
-        $itemName.toggleClass('unfinished complete');
+      if($itemName.hasClass('todo')){
+        $itemName.toggleClass('todo done');
       }
         
     });
     updateCount();
   });
   
-  // handle mark all unfinished action
-  $('.dropdown-menu').on('click', '#markAllUnfinished', function(){
+  // handle mark all todo action
+  $('.dropdown-menu').on('click', '#markAllTodo', function(){
     $('.item').each(function(){
       let $check = $(this).children('#check');
       let $itemName = $(this).children('.itemName');
       if($check.hasClass('fa-check-circle')){
         $check.toggleClass('fa-circle fa-check-circle');
       }
-      if($itemName.hasClass('complete')){
-        $itemName.toggleClass('unfinished complete');
+      if($itemName.hasClass('done')){
+        $itemName.toggleClass('todo done');
       }
         
     });
@@ -123,27 +123,27 @@ $(function() {
     });
   };
   
-  // handle sort action. It sorts based on item's name, and groups items based on whether they are complete or unfinished.
+  // handle sort action. It sorts based on item's name, and groups items based on whether they are done or todo.
   $('.dropdown-menu').on('click', '#sort', function(){
-    let unfinishedItems = $('.unfinished').parent().clone();
-    let completeItems = $('.complete').parent().clone();
-    sortByValue(unfinishedItems);
-    sortByValue(completeItems);
+    let todoItems = $('.todo').parent().clone();
+    let doneItems = $('.done').parent().clone();
+    sortByValue(todoItems);
+    sortByValue(doneItems);
     $list.children().remove();
-    $list.append(unfinishedItems);
-    $list.append(completeItems);
+    $list.append(todoItems);
+    $list.append(doneItems);
     updateCount();
   });
   
-  // handle remove completed action.
-  $('.dropdown-menu').on('click', '#removeComplete', function(){
-    $('.complete').parent().remove();
+  // handle remove doned action.
+  $('.dropdown-menu').on('click', '#removeDone', function(){
+    $('.done').parent().remove();
     updateCount();
   });
   
-  // handle remove unfinished action.
-  $('.dropdown-menu').on('click', '#removeUnfinished', function(){
-    $('.unfinished').parent().remove();
+  // handle remove todo action.
+  $('.dropdown-menu').on('click', '#removeTodo', function(){
+    $('.todo').parent().remove();
     updateCount();
   });
   

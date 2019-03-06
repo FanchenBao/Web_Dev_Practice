@@ -21,10 +21,10 @@
       <h2>Don't procrastinate!</h2>
       <div id='counter'>
         <button type="button" class="btn btn-secondary">
-          To Do <span class="badge badge-light" id='unfinished'></span>
+          To Do <span class="badge badge-light" id='todo'></span>
         </button>
         <button type="button" class="btn btn-success">
-          Done <span class="badge badge-light" id='completed'></span>
+          Done <span class="badge badge-light" id='done'></span>
         </button>
         <button type="button" class="btn btn-info">
           All <span class="badge badge-light" id='allItems'></span>
@@ -41,12 +41,12 @@
             <i class="fas fa-bars"></i>
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" id='markAllComplete' href="#">Mark All Complete</a>
-            <a class="dropdown-item" id='markAllUnfinished' href="#">Mark All Unfinished</a>
+            <a class="dropdown-item" id='markAllDone' href="#">Mark All Done</a>
+            <a class="dropdown-item" id='markAllTodo' href="#">Mark All Todo</a>
             <a class="dropdown-item" id='sort' href="#">Sort</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" id='removeComplete' href="#">Remove Complete</a>
-            <a class="dropdown-item" id='removeUnfinished' href="#">Remove Unfinished</a>
+            <a class="dropdown-item" id='removeDone' href="#">Remove Done</a>
+            <a class="dropdown-item" id='removeTodo' href="#">Remove Todo</a>
             <a class="dropdown-item" id='removeAll' href="#">Remove All</a>
           </div>
         </div>
@@ -54,22 +54,22 @@
       <ul class="list-unstyled">
 <!--
         <li class="item">
-          <i id="check" class="far fa-circle"></i><input type='text' class='itemName unfinished' value='fresh figs' disabled='true'><i id='trashcan' class="far fa-trash-alt hide"></i>
+          <i id="check" class="far fa-circle"></i><input type='text' class='itemName todo' value='fresh figs' disabled='true'><i id='trashcan' class="far fa-trash-alt hide"></i>
         </li>
         <li class="item">
-          <i id="check" class="far fa-circle"></i><input type='text' class='itemName unfinished' value="pines" disabled="true"><i id='trashcan' class="far fa-trash-alt hide"></i>
+          <i id="check" class="far fa-circle"></i><input type='text' class='itemName todo' value="pines" disabled="true"><i id='trashcan' class="far fa-trash-alt hide"></i>
         </li>
         <li class="item">
-          <i id="check" class="far fa-circle"></i><input type='text' class='itemName unfinished' value="sleep" disabled="true"><i id='trashcan' class="far fa-trash-alt hide"></i>
+          <i id="check" class="far fa-circle"></i><input type='text' class='itemName todo' value="sleep" disabled="true"><i id='trashcan' class="far fa-trash-alt hide"></i>
         </li>
         <li class="item">
-          <i id="check" class="far fa-circle"></i><input type='text' class='itemName unfinished' value="walk" disabled="true"><i id='trashcan' class="far fa-trash-alt hide"></i>
+          <i id="check" class="far fa-circle"></i><input type='text' class='itemName todo' value="walk" disabled="true"><i id='trashcan' class="far fa-trash-alt hide"></i>
         </li>
         <li class="item">
-          <i id="check" class="far fa-circle"></i><input type='text' class='itemName unfinished' value="kiss Rosiesie" disabled="true"><i id='trashcan' class="far fa-trash-alt hide"></i>
+          <i id="check" class="far fa-circle"></i><input type='text' class='itemName todo' value="kiss Rosiesie" disabled="true"><i id='trashcan' class="far fa-trash-alt hide"></i>
         </li>
         <li class="item">
-          <i id="check" class="far fa-circle"></i><input type='text' class='itemName unfinished' value="Fly" disabled="true"><i id='trashcan' class="far fa-trash-alt hide"></i>
+          <i id="check" class="far fa-circle"></i><input type='text' class='itemName todo' value="Fly" disabled="true"><i id='trashcan' class="far fa-trash-alt hide"></i>
         </li>
 -->
       </ul> 

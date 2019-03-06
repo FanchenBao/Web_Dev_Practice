@@ -57,12 +57,12 @@ body{
   background-color: transparent;
 }
 
-.complete{
+.done{
   color: grey;
   text-decoration: line-through;
 }
 
-.unfinished.edit{
+.todo.edit{
   border: 1px solid;
   color: grey;
 }
