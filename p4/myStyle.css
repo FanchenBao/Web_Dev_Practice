@@ -10,6 +10,7 @@ body{
   margin: auto;
   text-align: center;
   height: 800px;
+  width: 390px;
 }
 
 #counter button{
@@ -20,7 +21,8 @@ body{
 }
 
 #counter .btn-secondary, .btn-secondary:hover{
-  background-color: grey;
+  background-color: yellow;
+  color: black;
 }
 
 #counter .btn-success, .btn-success:hover{
@@ -46,29 +48,41 @@ body{
 }
 
 .item{
-  font-size:24px;
+  font-size:20px;
+  border-radius: 25px;
+  box-shadow: 5px 5px 10px grey;
+}
+
+.item.todo{
+  background-color: rgba(255, 255, 51, 0.7);
+}
+
+.item.done{
+  background-color: rgba(0, 204, 0, 0.7);
 }
 
 .itemName{
-  border: none;
+  height: auto;
+  border: 0px;
   color: black;
   padding-left: 30px;
   width: 300px;
   background-color: transparent;
 }
 
-.done{
+.itemName.done{
   color: grey;
   text-decoration: line-through;
 }
 
-.todo.edit{
-  border: 1px solid;
+.itemName.todo.edit{
   color: grey;
 }
 
 .far{
   cursor: pointer;
+  vertical-align: top;
+  padding-top: 10px;
 }
 
 .fa-check-circle{
