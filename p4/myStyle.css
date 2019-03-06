@@ -2,14 +2,13 @@ body{
   background-color: darkgoldenrod;
   background-image: url('./img/parchment-paper.jpg');
   background-position: center; 
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   background-size: cover; 
 }
 .container{
-  padding-top: 50px;
   margin: auto;
   text-align: center;
-  height: 800px;
+  height: auto;
   width: 390px;
 }
 
@@ -34,17 +33,17 @@ body{
 }
 
 .mainInterface { 
-  padding-top: 50px;
+  padding-top: 30px;
   padding-bottom: 10px;
 }
 
 #itemDescription{
   width: 250px;
-  font-size:24px;
+  font-size:20px;
 }
 
 .dropright{
-  padding-bottom: 10px;
+  padding-bottom: 6px;
 }
 
 .item{

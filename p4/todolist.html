@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-100">
   <head>
     <title>To Do List</title>
     <!-- Required meta tags -->
@@ -11,11 +11,14 @@
     <!--    Font Awesome CDN-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     
+    
+    <!-- Sticky footer CSS, from Bootstrap -->
+    <link href="./sticky-footer.css" rel="stylesheet">
     <!-- My CSS -->
     <link href="./mystyle.css" rel="stylesheet">
     
   </head>
-  <body>
+  <body class="d-flex flex-column h-100">
     <div class="container">
       <h1 id="header">To Do List</h1>
       <h2>Don't procrastinate!</h2>
@@ -52,28 +55,16 @@
         </div>
       </div>
       <ul class="list-unstyled">
-<!--
-        <li class="item">
-          <i id="check" class="far fa-circle"></i><input type='text' class='itemName todo' value='fresh figs' disabled='true'><i id='trashcan' class="far fa-trash-alt hide"></i>
-        </li>
-        <li class="item">
-          <i id="check" class="far fa-circle"></i><input type='text' class='itemName todo' value="pines" disabled="true"><i id='trashcan' class="far fa-trash-alt hide"></i>
-        </li>
-        <li class="item">
-          <i id="check" class="far fa-circle"></i><input type='text' class='itemName todo' value="sleep" disabled="true"><i id='trashcan' class="far fa-trash-alt hide"></i>
-        </li>
-        <li class="item">
-          <i id="check" class="far fa-circle"></i><input type='text' class='itemName todo' value="walk" disabled="true"><i id='trashcan' class="far fa-trash-alt hide"></i>
-        </li>
-        <li class="item">
-          <i id="check" class="far fa-circle"></i><input type='text' class='itemName todo' value="kiss Rosiesie" disabled="true"><i id='trashcan' class="far fa-trash-alt hide"></i>
-        </li>
-        <li class="item">
-          <i id="check" class="far fa-circle"></i><input type='text' class='itemName todo' value="Fly" disabled="true"><i id='trashcan' class="far fa-trash-alt hide"></i>
-        </li>
--->
-      </ul> 
+      </ul>
     </div>
+    
+    <!-- sticky footer -->
+    <footer class="footer mt-auto py-3">
+      <div class="footer container">
+        <span class="text-muted">&#169Fanchen Bao 2019. Powered by <a href="https://getbootstrap.com/">Bootstrap</a> and <a href="https://fontawesome.com/">Font Awesome</a></span>
+      </div>
+    </footer>
+    
 
     
     <!-- jQuery first, then Popper.js, then Bootstrap JS CDN -->
