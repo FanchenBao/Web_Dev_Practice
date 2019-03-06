@@ -8,7 +8,7 @@ $(function() {
   // ITEM COUNTER
   function updateCount() {                       // Create function to update counter
     $('#todo').text($('.itemName.todo').length); // count todo items
-    $('#doned').text($('.itemName.done').length); // count doned items
+    $('#done').text($('.itemName.done').length); // count doned items
     $('#allItems').text($('li').length); // count all items
   }
   updateCount();                                
