@@ -125,13 +125,32 @@ $(function() {
   
   // handle sort action. It sorts based on item's name, and groups items based on whether they are complete or unfinished.
   $('.dropdown-menu').on('click', '#sort', function(){
-      let unfinishedItems = $('.unfinished').parent().clone();
-      let completeItems = $('.complete').parent().clone();
-      sortByValue(unfinishedItems);
-      sortByValue(completeItems);
-      $list.children().remove();
-      $list.append(unfinishedItems);
-      $list.append(completeItems);
+    let unfinishedItems = $('.unfinished').parent().clone();
+    let completeItems = $('.complete').parent().clone();
+    sortByValue(unfinishedItems);
+    sortByValue(completeItems);
+    $list.children().remove();
+    $list.append(unfinishedItems);
+    $list.append(completeItems);
+    updateCount();
+  });
+  
+  // handle remove completed action.
+  $('.dropdown-menu').on('click', '#removeComplete', function(){
+    $('.complete').parent().remove();
+    updateCount();
+  });
+  
+  // handle remove unfinished action.
+  $('.dropdown-menu').on('click', '#removeUnfinished', function(){
+    $('.unfinished').parent().remove();
+    updateCount();
+  });
+  
+  // handle remove all action.
+  $('.dropdown-menu').on('click', '#removeAll', function(){
+    $('.item').remove();
+    updateCount();
   });
   
 
