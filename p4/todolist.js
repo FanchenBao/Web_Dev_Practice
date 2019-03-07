@@ -155,30 +155,16 @@ $(function() {
   
   
   // sort 'li' by item's name
-  let sortByValue = array =>{
-    array.sort(function(a, b){ // sort based on whether the item's name
-      a = $(a).children('textarea').val();
-      b = $(b).children('textarea').val();
-      // compare. alphabetically ascending
-      if(a > b) {
-          return 1;
-      } else if(a < b) {
-          return -1;
-      } else {
-          return 0;
-      }
-    });
+  let sortByValue = function(a, b){ // sort based on whether the item's name
+    a = $(a).children('textarea').val();
+    b = $(b).children('textarea').val();
+    return a > b ? 1 : a < b ? -1 : 0; // compare. alphabetically ascending
   };
   
   // handle sort action. It sorts based on item's name, and groups items based on whether they are done or todo.
   $('.dropdown-menu').on('click', '#sort', function(){
-    let todoItems = $('.item.todo').clone();
-    let doneItems = $('.item.done').clone();
-    sortByValue(todoItems);
-    sortByValue(doneItems);
-    $list.children().remove();
-    $list.append(todoItems);
-    $list.append(doneItems);
+    $('.item.todo').sort(sortByValue).appendTo($list); // note that appendTo() and append() essentially moves children to the end if they already exist under the parent.
+    $('.item.done').sort(sortByValue).appendTo($list);
     updateCount();
     updateLocalStorage();
   });
