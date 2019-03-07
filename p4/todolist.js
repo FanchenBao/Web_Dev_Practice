@@ -41,7 +41,7 @@ $(function() {
     }
   }
   
-  
+//  updateLocalStorage();
   loadLocalStorage();
   updateCount();  
 
