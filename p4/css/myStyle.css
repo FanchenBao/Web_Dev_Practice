@@ -46,6 +46,11 @@ body{
   padding-bottom: 6px;
 }
 
+.dropdown-item:hover{
+  background-color: royalblue;
+  color: white;
+}
+
 .item{
   font-size:20px;
   border-radius: 25px;
