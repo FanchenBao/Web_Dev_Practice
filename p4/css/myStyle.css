@@ -8,9 +8,8 @@ body{
   background-size: cover; 
 }
 .container{
-  margin: auto;
+  padding-top: 2rem;
   text-align: center;
-  height: auto;
   width: 390px;
 }
 
