@@ -20,7 +20,7 @@ $(function(){
   }
   
   for (let currencyName of currencyArray){ // populate $to_list
-    if (currencyName === 'Chinese Yuan')
+    if(currencyName === 'Chinese Yuan')
       $to_list.append('<option value="' + currencyObj[currencyName] + '" selected="1">' + currencyName + '</option>');
     else
       $to_list.append('<option value="' + currencyObj[currencyName] + '">' + currencyName + '</option>');
