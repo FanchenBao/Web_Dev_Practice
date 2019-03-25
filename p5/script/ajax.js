@@ -44,7 +44,7 @@ $('document').ready(function() {
 //          $("#converted_rate").show();
         } 
         else if(response.rate){									
-          $("#converted_rate").html("Exchange Rate ("+response.to_Currency+") : "+response.rate);
+          $("#converted_rate").html("Exchange Rate: " + "1 " + response.from_Currency + " = " + response.rate + " " + response.to_Currency);
 //          $("#converted_rate").show();
           $("#converted_amount").html("Converted Amount ("+response.to_Currency+") : "+response.converted_amount);
 //          $("#converted_amount").show();

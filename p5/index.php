@@ -15,7 +15,7 @@
     <!--  Script specific for currency conversion-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script type="text/javascript" src="script/validation.min.js"></script>
-    <script type="text/javascript" src="script/ajax.js"></script>
+    <script type="text/javascript" src="./script/ajax.js"></script>
     <script type="text/javascript" src="script/currency_converter.js"></script>
 
   </body>
