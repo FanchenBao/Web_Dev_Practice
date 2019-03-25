@@ -1,49 +1,23 @@
-<?php 
-include('header.php');
-?>
-<title>phpzag.com : Demo Currency conversion in PHP Using Google API</title>
-<script type="text/javascript" src="script/validation.min.js"></script>
-<script type="text/javascript" src="script/ajax.js"></script>
-<?php include('container.php');?>
-<div class="container">
-	<h2>Example: Currency conversion in PHP Using Google API</h2>	
-	<br />
-	<br />
-	<br />
-	<form method="post" id="currency-form"> 		
-		<div class="form-group">
-		<label>From</label>
-			<select name="from_currency">
-				<option value="INR">Indian Rupee</option>
-				<option value="USD" selected="1">US Dollar</option>
-				<option value="AUD">Australian Dollar</option>
-				<option value="EUR">Euro</option>
-				<option value="EGP">Egyptian Pound</option>
-				<option value="CNY">Chinese Yuan</option>
-			</select>	
-			&nbsp;<label>Amount</label>	
-			<input type="text" placeholder="Currency" name="amount" id="amount" />			
-			&nbsp;<label>To</label>
-			<select name="to_currency">
-				<option value="INR" selected="1">Indian Rupee</option>
-				<option value="USD">US Dollar</option>
-				<option value="AUD">Australian Dollar</option>
-				<option value="EUR">Euro</option>
-				<option value="EGP">Egyptian Pound</option>
-				<option value="CNY">Chinese Yuan</option>
-			</select>			
-			&nbsp;&nbsp;<button type="submit" name="convert" id="convert" class="btn btn-default">Convert</button>	
-				
-		</div>			
-	</form>	
-	
-	<div class="form-group" id="converted_rate"></div>	
-	<div id="converted_amount"></div>
-				
-	<div style="margin:50px 0px 0px 0px;">
-		<a class="btn btn-default read-more" style="background:#3399ff;color:white" href="http://www.phpzag.com/convert-currency-using-google-api/" title="">Back to Tutorial</a>			
-	</div>		
-</div>
-<?php include('footer.php');?>
+<!DOCTYPE html>
+<html lang="en">
+  <?php include('header.php'); ?>
 
+  <body id="page-top">
+    <?php include('navbar.php'); ?>
+    <?php include('main_content.php'); ?>
+    
+
+    <!--  Bootstrap JS CDN-->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <!--  Script specific for currency conversion-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript" src="script/validation.min.js"></script>
+    <script type="text/javascript" src="script/ajax.js"></script>
+    <script type="text/javascript" src="script/currency_converter.js"></script>
+
+  </body>
+</html>
 

@@ -22,7 +22,7 @@ $('document').ready(function() {
       dataType:'json',
       data : data,
       beforeSend: function(){	
-        $("#convert").html('<span class="glyphicon glyphicon-transfer"></span> &nbsp; converting ...');
+        $("#convert").html('<i class="fas fa-exchange-alt"></i> &nbsp; converting ...');
       },
       success : function(response){
         if(response.error){
@@ -39,21 +39,21 @@ $('document').ready(function() {
             default:
               $("#converted_rate").html('<span class="form-group has-error">Internal error</span>');
           }
-          $("#converted_amount").html("");
+          $("#converted_amount").html("&nbsp;");
           $("#convert").html('Convert');
-          $("#converted_rate").show();	 
+//          $("#converted_rate").show();
         } 
         else if(response.rate){									
-          $("#converted_rate").html("<strong>Exchange Rate ("+response.to_Currency+"</strong>) : "+response.rate);
-          $("#converted_rate").show();
-          $("#converted_amount").html("<strong>Converted Amount ("+response.to_Currency+"</strong>) : "+response.converted_amount);
-          $("#converted_amount").show();
+          $("#converted_rate").html("Exchange Rate ("+response.to_Currency+") : "+response.rate);
+//          $("#converted_rate").show();
+          $("#converted_amount").html("Converted Amount ("+response.to_Currency+") : "+response.converted_amount);
+//          $("#converted_amount").show();
           $("#convert").html('Convert');
         } 
         else {	
           $("#converted_rate").html("No Result");	
-          $("#converted_rate").show();	
-          $("#converted_amount").html("");
+//          $("#converted_rate").show();
+          $("#converted_amount").html("&nbsp;");
         }
       }
     });
