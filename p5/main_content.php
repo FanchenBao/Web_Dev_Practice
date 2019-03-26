@@ -27,7 +27,7 @@
             </div>
             <br>
             <button type="submit" name="convert" id="convert" class="btn btn-primary">Convert</button>
-            <button type="submit" id="switch" class="btn btn-success"><i class="fas fa-long-arrow-alt-up"></i><i class="fas fa-long-arrow-alt-down"></i></button>
+            <button type="button" id="switch" class="btn btn-success"><i class="fas fa-long-arrow-alt-up"></i><i class="fas fa-long-arrow-alt-down"></i></button>
           </div>			
         </form>	
 

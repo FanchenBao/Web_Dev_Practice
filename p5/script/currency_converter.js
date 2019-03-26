@@ -27,11 +27,12 @@ $(function(){
   }
   
   
-  
   // functionality of the switch button
   $('#switch').on('click', function(){
     let temp = $('#from_currency').val();
     $('#from_currency').val($('#to_currency').val());
     $('#to_currency').val(temp);
+    $('form').submit(); // after switching the currencies, submit form again.
   });
+  
 });
