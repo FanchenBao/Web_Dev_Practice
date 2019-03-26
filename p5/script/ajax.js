@@ -11,8 +11,9 @@ $('document').ready(function() {
         required: ""
        },			
     },
-    submitHandler: submitForm	
-  });	   
+    submitHandler: submitForm // calling the function below that actually post the form to convert.php
+  });
+  
   /* Handling login functionality */
   function submitForm() {		
     var data = $("#currency-form").serialize();				
