@@ -23,4 +23,6 @@
   <!-- my style css -->
   <link href="css/style.css" rel="stylesheet">
   
+  <link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
+  
 </head>
