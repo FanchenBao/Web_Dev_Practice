@@ -2,7 +2,7 @@
   require_once "connect_db.php";
   
   if (isset($_POST["vote"])){
-    $votename = trim($_POST["name"]);
+    $votename = ucwords(trim($_POST["name"])); // all names will be stored with first letter capitalized and others lower case
     $gender = $_POST["gender"];
     
     // Update the count of input name if already exists in votenames db, else add it to the db
@@ -27,6 +27,27 @@
       /* close statement */
       $stmt->close();
     }
+    
+    // Retrieve top 10 boy names from votenames db
+    $boy = array();
+    if (!$result = $conn->query("SELECT name, count FROM votenames WHERE gender='M' ORDER BY count DESC LIMIT 10")){
+      echo json_encode(array("error"=>2));
+      exit;
+    }
+    while($row = $result->fetch_assoc())
+      array_push($boy, $row);
+    
+    // Retrieve top 10 girl names from votenames db
+    $girl = array();
+    if(!$result = $conn->query("SELECT name, count FROM votenames WHERE gender='F' ORDER BY count DESC LIMIT 10")){
+      echo json_encode(array("error"=>2));
+      exit;
+    }
+    while($row = $result->fetch_assoc())
+      array_push($girl, $row);
+    
+    echo json_encode(array("boy"=>$boy, "girl"=>$girl));
+    
   }
 
   $conn->close();

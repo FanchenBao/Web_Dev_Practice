@@ -25,13 +25,29 @@ $(function(){
       data: data,
       beforeSend: function(){
         $("#vote").html("voting...");
+        $("#display").empty();
       },
       
       success: function(response){
-        console.log(response);
+//        console.log(response);
         $("#vote").html("Vote!");
         if (response.error){
-          $("#display").html("<span>Something is wrong</span>");
+          if (response.error == 1)
+            $("#display").html("<span>Database insertion error!</span>");
+          else if (response.error == 2)
+            $("#display").html("<span>Database query error!</span>");
+        }
+        else{
+          $("#display").append("<p>Thanks! Your vote has been counted.</p>");
+          $("#display").append("<p>Girls<\p>");
+          for(let row of response.girl){
+            $("#display").append("<p>" + row.name + " " + row.count + "</p>");
+          }
+          $("#display").append("<p>Boys<\p>");
+          for(let row of response.boy){
+            $("#display").append("<p>" + row.name + " " + row.count + "</p>");
+          }
+          
         }
         
       }
