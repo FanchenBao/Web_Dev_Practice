@@ -38,6 +38,7 @@ $(function(){
             $("#display").html("<span>Database query error!</span>");
         }
         else{
+          $("#suggesstion-box").hide();
           $("#display").append("<p>Thanks! Your vote has been counted.</p>");
           $("#display").append("<p>Girls<\p>");
           for(let row of response.girl){

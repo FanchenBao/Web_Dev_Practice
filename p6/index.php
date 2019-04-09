@@ -16,12 +16,17 @@
     
     <!--    note that all fields that are to be submitted MUST have 'name' field-->
     <form method="post" id="babyname_form">
-      <input type="text" name="name" placeholder="Enter a name">
-      <br>
-      <label>Boy</label><input type="radio" name="gender" value="M">
-      <br>
-      <label>Girl</label><input type="radio" name="gender" value="F" checked="checked">
-      <br>
+      <div id="input_box">
+        <input type="text" name="name" id="name" placeholder="Enter a name" autocomplete=off>
+        <div id="suggesstion-box">
+          <ul id="name-list"></ul>
+        </div>
+      </div>
+      <div id="options">
+        <label>Boy</label><input type="radio" name="gender" id="gender" value="M" checked="checked">
+        <br>
+        <label>Girl</label><input type="radio" name="gender" id="gender" value="F">
+      </div>
       <button class="button" type="submit" name="vote" id="vote">Vote!</button>
           
     </form>
@@ -38,5 +43,6 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.0/dist/jquery.validate.min.js"></script>
     <!--  custome JS scripts-->
     <script type="text/javascript" src="./script/formhandle.js"></script>
+    <script type="text/javascript" src="./script/autosuggest.js"></script>
   </body>
 </html>
