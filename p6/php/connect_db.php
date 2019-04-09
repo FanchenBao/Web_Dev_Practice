@@ -1,6 +1,6 @@
 <?php // login.php
   $hn = 'localhost';
-  $db = 'test';
+  $db = 'fanchenDB';
   $un = 'root'; // Change this
   $pw = 'root'; // Change this
 
