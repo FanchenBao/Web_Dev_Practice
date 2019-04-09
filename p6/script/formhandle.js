@@ -29,6 +29,7 @@ $(function(){
       
       success: function(response){
         console.log(response);
+        $("#vote").html("Vote!");
         if (response.error){
           $("#display").html("<span>Something is wrong</span>");
         }
