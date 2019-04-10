@@ -24,12 +24,21 @@ $(function(){
         }
         else{
           for (let suggname of response.data)
-            $("#name-list").append("<li>"+suggname.name+"</li>");
+            $("#name-list").append("<li class='suggname'>"+suggname.name+"</li>");
         }
         
       }
       
     });
+  });
+  
+//  $("#name").on("blur", function(){ // hide auto suggestion when focus not on input box
+//      $("#suggesstion-box").hide();
+//    });
+  
+  $("#name-list").on("click", ".suggname", function(e){ // click auto suggestion item to get value transfered to input box.
+    $("#name").val($(e.target).text());
+    $("#suggesstion-box").hide();
   });
 
 });
