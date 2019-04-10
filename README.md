@@ -1,5 +1,5 @@
 # Web_Dev_Practice
-Course project of Internet Computing, including practice in HTML5, CSS, Bootstrap, JavaScript, JQuery, etc.
+Course project of Internet Computing, including practice in HTML5, CSS, Bootstrap, JavaScript, jQuery, PHP, MYSQL, etc.
 
 ## Under development.
 
