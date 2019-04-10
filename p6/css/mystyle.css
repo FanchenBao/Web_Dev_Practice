@@ -1,8 +1,19 @@
 
 body{
-  background-image: url("../img/header-bg.jpg");
-  background-repeat: no-repeat;
+  background-image: url("../img/bg2.jpg");
+  background-repeat: repeat;
   background-size: cover;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: darkgreen;
+  opacity: 0.5;
+  z-index: -1; /* z-index determines the stacking order of elements. The higher an element's z-index the more on top it is. Here, z-index is set to -1, meaning the overlay is on the bottom layer relative to other elements*/
 }
 
 header.masthead .intro-text {
@@ -12,7 +23,7 @@ header.masthead .intro-text {
 
 header.masthead .intro-text .intro-heading {
   font-size: 45px;
-  color: #ac00e6;
+  color: white;
   margin-bottom: 10px;
 }
 
@@ -24,36 +35,59 @@ header.masthead .intro-text .intro-heading {
   
   header.masthead .intro-text .intro-heading {
     font-size: 45px;
-    color: #ac00e6;
+    color: white;
     margin-bottom: 10px;
   }
 }
 
-#gender{
-  margin-left: 5px;
-  margin-right: 10px;
+.btn-primary, btn-primary:active, .btn-primary:focus{
+  background-color: red;
+  border-color: red;
 }
 
+.btn-primary:hover {
+  background-color: darkred!important;
+  border-color: darkred!important;
+}
+
+/* elements within the form */
+#gender{
+  margin-left: 20px;
+}
 #name{
   font-size: 20px;
   margin-top: 10px;
+  width: inherit;
 }
-
 #vote{
   margin-top: 10px;
 }
-
 #name-error{
-  color: red;
+  color: black;
+}
+#vote-result{
+  margin-top: 10px;
 }
 
+/* autosuggestion */
 .list-group{
   align-items: center;
+  width: inherit;
 }
-
 .list-group-item{
   padding: 0rem 0rem;
-  width: 250px;
+  width: inherit;
+}
+
+/*Display*/
+.table{
+  margin-top: 20px;
+}
+#table-boy{
+  background-color: skyblue;
+}
+#table-girl{
+  background-color: pink;
 }
 
 /* For sticky footer*/

@@ -16,6 +16,7 @@ $(function(){
       },
       success: function(response){
 //        console.log(response);
+        $("#vote-result").hide();
         $("#suggestion-box").show();
         $("#suggestion-box").empty();
         $("#name").css({"background-image":""}); // remove the background image

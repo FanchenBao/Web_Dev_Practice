@@ -9,41 +9,14 @@
   <head>
     <?php include('./php/header.php'); ?>
   </head>
+  
   <body id="page-top" class="d-flex flex-column">
+    <div class="overlay"></div>
     <!--    create two databases, one for voting, the other for all names in 2017-->
     <?php include("./php/createDB.php"); ?>
     
-    <div id="page-content">
-      <?php include("./php/navigation.php")?>
+    <?php include("./php/maincontent.php"); ?>
     
-      <header class="masthead">
-        <div class="container">
-          <div class="intro-text">
-            <div class="intro-heading">Vote for your favorite baby names!</div>
-            <!--    note that all fields that are to be submitted MUST have 'name' field-->
-            <form method="post" id="babyname_form">
-              <div class="row text-center">
-                <div class="col-md-4">
-                  <img src="./img/boy.png" alt="Boy"><input type="radio" name="gender" id="gender" value="M" checked="checked">
-                  <img src="./img/girl.png" alt="Girl"><input type="radio" name="gender" id="gender" value="F">
-                </div>
-                <div class="col-md-4">
-                  <input type="text" name="name" id="name" placeholder="Enter a name" autocomplete=off>
-                  <div class="list-group" id="suggestion-box">
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <button class="btn btn-primary" type="submit" name="vote" id="vote">Vote!</button>
-                </div>
-              </div>
-
-            </form>
-            <div id="display"></div>
-          </div>
-        </div>
-      </header>
-    </div>
-
     <?php include('./php/footer.php'); ?>
     
     

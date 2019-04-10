@@ -11,12 +11,14 @@
         <li class="nav-item">
           <a class="nav-link js-scroll-trigger" href="http://fanchenbao.github.io">Portfolio</a>
         </li>
+<!--
         <li class="nav-item">
           <a class="nav-link js-scroll-trigger" href="https://github.com/FanchenBao"><i class="fab fa-github"></i></a>
         </li>
         <li class="nav-item">
           <a class="nav-link js-scroll-trigger" href="https://www.linkedin.com/in/fanchen-bao-0160a978/"><i class="fab fa-linkedin-in"></i></a>
         </li>
+-->
       </ul>
     </div>
   </div>

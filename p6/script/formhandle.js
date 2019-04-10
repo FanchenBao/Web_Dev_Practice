@@ -25,28 +25,42 @@ $(function(){
       data: data,
       beforeSend: function(){
         $("#vote").html("voting...");
-        $("#display").empty();
+        $(".table-body").empty();
       },
       
       success: function(response){
 //        console.log(response);
         $("#vote").html("Vote!");
+        $("#vote-result").show();
         if (response.error){
+          $("#vote-result").addClass("alert-danger");
           if (response.error == 1)
-            $("#display").html("<span>Database insertion error!</span>");
+            $("#vote-result").html("Database insertion error!");
           else if (response.error == 2)
-            $("#display").html("<span>Database query error!</span>");
+            $("#vote-result").html("Database query error!");
         }
         else{
           $("#suggesstion-box").hide();
-          $("#display").append("<p>Thanks! Your vote has been counted.</p>");
-          $("#display").append("<p>Girls<\p>");
+          
+          // show successful voting message
+          $("#vote-result").addClass("alert-success");
+          $("#vote-result").html("<i class='far fa-grin-hearts'></i> Your vote has been counted! Thanks!");
+          
+          // display rankings
+          $(".table").show();
+          let rank = 1;
           for(let row of response.girl){
-            $("#display").append("<p>" + row.name + " " + row.count + "</p>");
+            $("#display-girl").append("<tr><td>" + rank + "</td>" +
+                                      "<td>" + row.name + "</td>" + 
+                                      "<td>" + row.count + "</td></tr>");
+            rank+=1;
           }
-          $("#display").append("<p>Boys<\p>");
+          rank = 1;
           for(let row of response.boy){
-            $("#display").append("<p>" + row.name + " " + row.count + "</p>");
+            $("#display-boy").append("<tr><td>" + rank + "</td>" +
+                                      "<td>" + row.name + "</td>" + 
+                                      "<td>" + row.count + "</td></tr>");
+            rank+=1;
           }
           
         }

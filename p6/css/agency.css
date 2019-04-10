@@ -70,6 +70,7 @@ section h3.section-subheading {
   padding: 20px 40px;
 }
 
+/*
 .btn-primary {
   background-color: #fed136;
   border-color: #fed136;
@@ -85,6 +86,7 @@ section h3.section-subheading {
   -webkit-box-shadow: 0 0 0 0.2rem rgba(254, 209, 55, 0.5) !important;
   box-shadow: 0 0 0 0.2rem rgba(254, 209, 55, 0.5) !important;
 }
+*/
 
 ::selection {
   background: #fed136;
