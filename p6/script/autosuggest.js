@@ -1,5 +1,4 @@
 $(function(){
-  
   $("#name").on("keyup", function(){
     $.ajax({
       type: "POST",
@@ -10,8 +9,8 @@ $(function(){
         $("#name").css({ 
                   "background-image": "url('../img/spinner.gif')",
                   "background-repeat": "no-repeat",
-                  "background-attachment": "fixed",
-                  "background-position": "30px 10px", 
+                  "background-position": "right", 
+                  "background-size": "50px 50px"
                  });  // load a spinner. Must adjust input box size to accomodate the spinner
       },
       success: function(response){
