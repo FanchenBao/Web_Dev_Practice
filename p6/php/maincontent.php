@@ -9,7 +9,9 @@
         <form method="post" id="babyname_form">
           <div class="row text-center">
             <div class="col-md-4">
-              <img src="../img/boy.png" alt="Boy"><input type="radio" name="gender" id="gender" value="M">
+              <div class="radio-group boy">
+                <img src="../img/boy.png" alt="Boy"><input type="radio" name="gender" id="gender" value="M">
+              </div>
               <table class="table table-striped table-sm" id="table-boy" style="display: none">
                 <thead>
                   <tr>
@@ -22,7 +24,9 @@
             </table>
             </div>
             <div class="col-md-4">
-              <img src="../img/girl.png" alt="Girl"><input type="radio" name="gender" id="gender" value="F" checked="checked">
+              <div class="radio-group girl">
+                <img src="../img/girl.png" alt="Girl"><input type="radio" name="gender" id="gender" value="F" checked="checked">
+              </div>
               <table class="table table-striped table-sm" id="table-girl" style="display: none">
                 <thead>
                   <tr>

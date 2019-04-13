@@ -1,12 +1,14 @@
 
 body{
   background-image: url("../img/bg2.jpg");
-  background-repeat: repeat;
+  background-repeat: no-repeat;
   background-size: cover;
+  background-position: center center;
+  background-attachment: fixed; /* use this to allow background image to cover the entire page */
 }
 
 .overlay {
-  position: absolute;
+  position: fixed; /* use this to allow overlay to cover the entire page */
   top: 0;
   left: 0;
   height: 100%;
@@ -51,6 +53,20 @@ header.masthead .intro-text .intro-heading {
 }
 
 /* elements within the form */
+.radio-group{
+  width: 10rem;
+  margin: auto;
+  border-radius: 25px;
+}
+.radio-group:hover{ /*radio group function as a button now*/
+  cursor: pointer;
+}
+.radio-group.boy{
+  background-color: skyblue;
+}
+.radio-group.girl{
+  background-color: pink;
+}
 #gender{
   margin-left: 20px;
 }

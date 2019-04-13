@@ -10,7 +10,7 @@ $(function(){
     },
     messages:{
       name: {
-       required: "Please enter a name" 
+       required: "<div class='alert alert-warning'>Please enter a name</div>" 
       }
     },
     submitHandler: submitForm
@@ -72,6 +72,10 @@ $(function(){
   
   $.validator.addMethod( "spelling", function( value, element ) { // allowing only english letter and ' and !
       return this.optional( element ) || /^[a-zA-Z'!'\s]+$/i.test( value );
-  }, "English letters, apostrophe, exclamation mark, and white space only please" );
-
+  }, "<div class='alert alert-warning'>English letters, apostrophe, exclamation mark, and white space only please</div>" );
+  
+  $(".radio-group").on("click", function(){ // let user choose boy and girl by clicking a larger area instead of the small radio button
+    $(this).find("input").prop("checked", true);
+  });
+  
 });
