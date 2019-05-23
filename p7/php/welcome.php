@@ -11,7 +11,7 @@
   </head>
   <body>
   
-    <h1>You are logged in as <span id="welcome_user"></span></h1>
+    
 
 	<!--jQuery CDN-->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
@@ -24,10 +24,6 @@
 
 	
     <!--	Custom JS scripts-->
-    <script>
-      let url = window.location.href;
-      let username = url.split('user=').pop();
-      $("#welcome_user").text(username);
-    </script>
+    
   </body>
 </html>

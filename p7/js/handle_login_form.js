@@ -25,7 +25,7 @@ $(function(){
     let data = $("#login_form").serialize();
     $.ajax({
       type: "POST",
-      url: "../php/authenticate.php",
+      url: "../users/authenticate.php",
       dataType: "json",
       data: data,
       beforeSend: function(){
@@ -33,12 +33,12 @@ $(function(){
       },
       
       success: function(response){
-        console.log(response);
+//        console.log(response);
         $("#login").html("Login");
         if (response.error == 1)
           $("#login_result").text("Username or Password error");
         else{
-          $(location).attr('href', "../php/welcome.php?user=" + response.username);
+          $(location).attr('href', "../index.php?user=" + response.username); // redirect to index page with attached username information
         }
       }
       
