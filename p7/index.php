@@ -4,14 +4,10 @@
   ini_set('display_errors',1);   
 ?>
 
-<?php
-require_once "php/functions.php";
-?>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <?php include("./php/header.php") ?>
+    <?php include("./php/header.php"); ?>
   </head>
   <body>
   
@@ -32,7 +28,7 @@ require_once "php/functions.php";
             <input type="password" placeholder="Enter Password" name="password" id="password">
           </div>
           <div>
-            <button type="submit" id="login" name="login">Login</button>
+            <button class="btn btn-primary" type="submit" id="login" name="login">Login</button>
           </div>
         </div>
 
@@ -43,9 +39,10 @@ require_once "php/functions.php";
       </form>
     </div>
     <h2>Don't have an account? Sign up!</h2>
+    <p id="login_result"></p>
 
 	<!--jQuery CDN-->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <!--  jQuery validation plug-in-->
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.0/dist/jquery.validate.min.js"></script>
     <!--bootstrap JS CDN-->
@@ -56,7 +53,7 @@ require_once "php/functions.php";
 	
     <!--	Custom JS scripts-->
 	<script src="functions.js"></script>
-    <script type="text/javascript" src="./js/formhandle.js"></script>
+    <script type="text/javascript" src="./js/handle_login_form.js"></script>
 
   </body>
 </html>
