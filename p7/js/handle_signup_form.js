@@ -26,6 +26,7 @@ $(function(){
       username:{
         required: true,
         maxlength: 32, // maximum username length is 32, based on database requirement
+        spelling: true
       },
       password:{
         required: true,
@@ -52,7 +53,7 @@ $(function(){
     let data = $("#signup_form").serialize();
     $.ajax({
       type: "POST",
-      url: "../users/adduser.php",
+      url: "../users/addUser.php",
       dataType: "json",
       data: data,
       beforeSend: function(){
@@ -60,13 +61,12 @@ $(function(){
       },
       
       success: function(response){
-        console.log(response);
-//        $("#login").html("Login");
-//        if (response.error == 1)
-//          $("#login_result").text("Username or Password error");
-//        else{
-//          $(location).attr('href', "../index.php?user=" + response.username);
-//        }
+//        console.log(response);
+        $("#signup").html("Sign Up");
+        
+        // next step: direct to a new page showing success. And then redirect to the index page with the user signed in.
+        // also: finish the cancel button functionality
+
       }
       
     });
@@ -79,16 +79,25 @@ $(function(){
         url: "../users/checkExistingUsername.php",
         data: {username : $(this).val()}, // check username that has just been put in.
         dataType: "json",
-//        beforeSend: function(){console.log($("#username").val());}, // Note: I initially used console.log($(this).val()), but there was error. Apparently, $(this) doesn't work anymore inside this function because it loses scope (it belongs to the event handler function, not the one attached to beforeSend).
+//        beforeSend: function(){console.log($("#username").val());}, 
+      // Note: I initially used console.log($(this).val()), but there was error. Apparently, $(this) doesn't work anymore inside this function because it loses scope (it belongs to the event handler function, not the one attached to beforeSend).
         success: function(response){
 //          console.log(response);
-          if (response.error) // if username is unique, hide error message
+          if (response.error){ // if username is unique, hide error message
             $("#unique-error").hide();
-          else // otherwise show error message
+            $("#signup").prop("disabled", false); // enable signup button
+          }
+          else{ // otherwise show error message
             $("#unique-error").show();
+            $("#signup").prop("disabled", true);
+          }
       }
       
     });
   });
+  
+  $.validator.addMethod( "spelling", function( value, element ) { // allowing only english letter and ' and !
+      return this.optional( element ) || /^[a-zA-Z_0-9-]+$/i.test( value );
+  }, "<div class='alert alert-warning'>User only alphanumeric characters, underscore, and hyphen for username</div>" );
   
 });

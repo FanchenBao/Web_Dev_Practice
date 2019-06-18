@@ -1,8 +1,8 @@
 <?php
   require_once "db_connect.php";
   
-  // create allnames table
-  if (!$db->query("SELECT 1 FROM users LIMIT 1")){ // check whether allnames table has been created already
+  // create user table
+  if (!$db->query("SELECT 1 FROM users LIMIT 1")){ // check whether user table has been created already
     $createUsers_stmt = "CREATE TABLE users(
         username varchar(32) NOT NULL UNIQUE,
         passhash varchar(255) NOT NULL,
