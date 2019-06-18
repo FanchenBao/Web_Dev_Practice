@@ -21,6 +21,10 @@
           <div>
             <label for="username"><b>Username</b></label>
             <input type="text" placeholder="Enter Username" name="username" id="username">
+<!--            specifically include unique username error message here, because I cannot use validator to achieve this goal. This message appears when unique username fails, and hides otherwise-->
+            <label id="unique-error" for="username" style="display:none">
+              <div class='alert alert-danger'>Username already exists</div>
+            </label>
           </div>
 
           <div id="password_container">
@@ -30,8 +34,8 @@
           </div>
 
           <div>
-            <label for="password-repeat"><b>Repeat Password</b></label>
-            <input type="password" placeholder="Repeat Password" name="password-repeat" id="password-repeat">
+            <label for="password_repeat"><b>Repeat Password</b></label>
+            <input type="password" placeholder="Repeat Password" name="password_repeat" id="password_repeat">
           </div>
 <!--
           <label>

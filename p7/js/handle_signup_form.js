@@ -14,12 +14,13 @@ $(function(){
   };
   options.common = {
         debug: true,
-        usernameField: "#username"
+        usernameField: "#username" // set password strength the lowest if it is identical to username
   };
   $('#password').pwstrength(options);
   
   
-  // username and password input validate
+  
+  // username and password input validate, excluding check for username uniqueness (that is achieved via the ajax call on keyup event in the next code block)
   $("#signup_form").validate({
     rules:{
       username:{
@@ -28,8 +29,9 @@ $(function(){
       },
       password:{
         required: true,
-        maxlength: 32,
-        minlength: 8
+      },
+      password_repeat:{
+        required: true,
       }
     },
     messages:{
@@ -37,7 +39,10 @@ $(function(){
        required: "<div class='alert alert-warning'>Please enter a username</div>" 
       },
       password: {
-       required: "<div class='alert alert-warning'>Please enter a password</div>" 
+        required: "<div class='alert alert-warning'>Please enter a new password</div>"
+      },
+      password_repeat: {
+       required: "<div class='alert alert-warning'>Please repeat the password</div>" 
       }
     },
     submitHandler: submitSignup
@@ -66,5 +71,24 @@ $(function(){
       
     });
   }
+  
+  // detect whether the username has been used already
+  $("#username").on("keyup", function(){
+    $.ajax({
+        type: "POST",
+        url: "../users/checkExistingUsername.php",
+        data: {username : $(this).val()}, // check username that has just been put in.
+        dataType: "json",
+//        beforeSend: function(){console.log($("#username").val());}, // Note: I initially used console.log($(this).val()), but there was error. Apparently, $(this) doesn't work anymore inside this function because it loses scope (it belongs to the event handler function, not the one attached to beforeSend).
+        success: function(response){
+//          console.log(response);
+          if (response.error) // if username is unique, hide error message
+            $("#unique-error").hide();
+          else // otherwise show error message
+            $("#unique-error").show();
+      }
+      
+    });
+  });
   
 });
